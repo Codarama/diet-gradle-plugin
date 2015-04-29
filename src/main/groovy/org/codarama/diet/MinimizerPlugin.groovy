@@ -1,5 +1,6 @@
 package org.codarama.diet
 
+import org.codarama.diet.extensions.MinimizerExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -13,19 +14,10 @@ public class MinimizerPlugin implements Plugin<Project> {
 
     public void apply(Project project) {
         // Add the 'greeting' extension object
-        project.extensions.create("minimizer", MinimizerPluginExtension)
+        project.extensions.create("minimizer", MinimizerExtension)
         // Add a task that uses the configuration
         project.task('minimize') << {
-            println project.sourceSets();
-        }
-    }
-
-    public class MinimizerPluginExtension {
-
-        def String message = 'Hello from GreetingPlugin'
-
-        MinimizerPluginExtension(String message) {
-            this.message = message
+            println project.minimizer.message
         }
     }
 }
