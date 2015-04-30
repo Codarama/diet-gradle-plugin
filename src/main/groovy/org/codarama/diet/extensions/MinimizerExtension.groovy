@@ -1,8 +1,19 @@
 package org.codarama.diet.extensions
 
+import org.codarama.diet.api.DefaultMinimizer
+
+import java.util.jar.JarFile
+
 /**
  * Created by Ayld on 4/29/15.
  */
 public class MinimizerExtension {
-    def String message = 'The test! It hast beeneth successful!'
+
+    public JarFile minimize(String srcDirAbsPath, Set<File> libs) {
+        return DefaultMinimizer
+                .sources(srcDirAbsPath)
+                .libs(libs)
+                .minimize()
+                .getJar()
+    }
 }
