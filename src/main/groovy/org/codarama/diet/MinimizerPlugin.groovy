@@ -26,12 +26,12 @@ public class MinimizerPlugin implements Plugin<Project> {
             }
             File srcDir = dirs.iterator().next()
 
-            Set<File> libJars = Sets.newHashSet()
+            Set<File> libJars = Sets.newHashSet()aa
             project.configurations.compile.each {
                 File file -> libJars.add(file)
             }
 
-            JarFile minimizedJar = project.minimizer.minimize(srcDir, libJars)
+            JarFile minimizedJar = project.minimizer.minimize(srcDir.getAbsolutePath(), libJars)
             println 'jar: ' + minimizedJar.getName()
         }
     }

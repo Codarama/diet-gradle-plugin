@@ -31,9 +31,13 @@ dependencies {
 
 buildscript {
     repositories {
+        mavenCentral()
+        mavenLocal()
         flatDir name: 'build', dirs: "$projectDir/build/libs"
     }
     dependencies {
+        classpath group: 'org.codarama.diet', name: 'diet-engine', version: '0.6.0-SNAPSHOT'
+        classpath group: 'com.google.guava', name: 'guava', version: '14.0.1'
         classpath group: 'org.codarama', name: 'diet-gradle-plugin',
                 version: '0.1.0-SNAPSHOT'
     }
